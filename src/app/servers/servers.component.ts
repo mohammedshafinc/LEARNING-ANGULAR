@@ -11,6 +11,10 @@ export class ServersComponent implements OnInit {
   allowNewServer = false
   serverCreationStatus = "server is not Cretead"
   servername :string = ""
+  servercreated = false
+  username :string = ""
+  servers = ['template' ,"template2"]
+  
 
 
   constructor(){
@@ -24,6 +28,8 @@ export class ServersComponent implements OnInit {
   }
   onCreateServer(){
     this.serverCreationStatus = "server is created"
+    this.servercreated = true
+    this.servers.push(this.servername)
   }
 
   onupdateserver(event:Event){
@@ -31,4 +37,10 @@ export class ServersComponent implements OnInit {
     
 
   }
+
+  resetbtn(){
+    this.username = ""
+  }
+ 
+
 }

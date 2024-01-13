@@ -21,6 +21,23 @@
   Add server
 </button>
 <br />
-<p>the server {{ servername }} is created</p>
-<p>{{ serverCreationStatus }}</p>
-<app-server></app-server>
+<p *ngIf="servercreated; else noServer">
+  the server {{ servername }} is created
+</p>
+<ng-template #noServer>
+  <p>No server created</p>
+</ng-template>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<app-server *ngFor="let server of servers"></app-server>
+
+<hr />
+
+<input type="text" class="form-control" [(ngModel)]="username" /><br />
+<p>{{ username }}</p>
+<button
+  class="btn btn-danger"
+  [disabled]="username === ''"
+  (click)="resetbtn()"
+>
+  reset user
+</button>
